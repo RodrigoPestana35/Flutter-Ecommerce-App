@@ -7,8 +7,12 @@ class ShopPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Shop Page"),
+        title: const Text("Shop Page"),
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
+      drawer: Drawer(),
     );
   }
 }
