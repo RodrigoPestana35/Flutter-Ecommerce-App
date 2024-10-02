@@ -1,10 +1,45 @@
+import 'package:ecommerceapp/models/product.dart';
+import 'package:ecommerceapp/models/shop.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
 
+  //remove product from cart
+  void removeFromCart(BuildContext context, Product product) {
+    //show a dialog box to ask the user if they want to remove the product from the cart
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            content: Text("Do you want to remove this product from the cart?"),
+            actions: [
+              //yes button
+              MaterialButton(
+                onPressed: () {
+                  //remove product from cart
+                  context.read<Shop>().removeFromCart(product);
+                  Navigator.pop(context);
+                },
+                child: Text("Yes"),
+              ),
+              //cancel button
+              MaterialButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Cancel"),
+              ),
+            ],
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
+    //get user's cart
+    final cart = context.watch<Shop>().userCart;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -13,6 +48,32 @@ class CartPage extends StatelessWidget {
         title: const Text("Cart Page"),
       ),
       backgroundColor: Theme.of(context).colorScheme.surface,
+      body: Column(
+        children: [
+          //cart list
+          Expanded(
+            child: ListView.builder(
+                itemCount: cart.length,
+                itemBuilder: (context, index) {
+                  //get each product
+                  final product = cart[index];
+
+                  //return a ProductTile
+                  return ListTile(
+                    title: Text(product.name),
+                    subtitle: Text(product.price.toStringAsFixed(2)),
+                    trailing: IconButton(
+                      icon: const Icon(Icons.remove),
+                      onPressed: () => removeFromCart(context, product),
+                    ),
+                  );
+                }),
+          ),
+          //total price
+
+          //pay button
+        ],
+      ),
     );
   }
 }
