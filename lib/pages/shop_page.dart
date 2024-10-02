@@ -1,6 +1,5 @@
 import 'package:ecommerceapp/components/my_drawer.dart';
 import 'package:ecommerceapp/components/my_product_tile.dart';
-import 'package:ecommerceapp/main.dart';
 import 'package:ecommerceapp/models/shop.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
