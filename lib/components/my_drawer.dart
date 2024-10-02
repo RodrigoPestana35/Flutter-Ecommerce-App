@@ -1,5 +1,6 @@
 // ignore_for_file: sort_child_properties_last, prefer_const_constructors
 
+import 'package:ecommerceapp/components/my_list_tile.dart';
 import 'package:flutter/material.dart';
 
 class MyDrawer extends StatelessWidget {
@@ -23,10 +24,25 @@ class MyDrawer extends StatelessWidget {
           ),
 
           //shop tile
+          MyListTile(
+            text: "Shop",
+            icon: Icons.home,
+            onTap: () {},
+          ),
 
           //cart tile
+          MyListTile(
+            text: "Cart",
+            icon: Icons.shopping_cart,
+            onTap: () {},
+          ),
 
           //exit tile
+          MyListTile(
+            text: "Exit",
+            icon: Icons.exit_to_app,
+            onTap: () {},
+          ),
         ],
       ),
     );
