@@ -1,3 +1,4 @@
+import 'package:ecommerceapp/components/my_drawer.dart';
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -6,7 +7,14 @@ class CartPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        foregroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text("Cart Page"),
+      ),
+      drawer: const MyDrawer(),
+      backgroundColor: Theme.of(context).colorScheme.surface,
     );
   }
 }
