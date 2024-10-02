@@ -13,7 +13,6 @@ class CartPage extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Cart Page"),
       ),
-      drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.surface,
     );
   }
