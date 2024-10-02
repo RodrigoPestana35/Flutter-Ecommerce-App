@@ -14,6 +14,7 @@ class ShopPage extends StatelessWidget {
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
       drawer: MyDrawer(),
+      backgroundColor: Theme.of(context).colorScheme.surface,
     );
   }
 }
