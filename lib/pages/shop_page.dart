@@ -22,6 +22,7 @@ class ShopPage extends StatelessWidget {
       drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: ListView.builder(
+        padding: const EdgeInsets.all(25),
         itemCount: products.length,
         itemBuilder: (context, index) {
           //get each product
