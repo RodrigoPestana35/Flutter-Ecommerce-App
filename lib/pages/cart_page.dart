@@ -5,7 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
-  const CartPage({super.key});
+  CartPage({super.key});
+  double totalPrices = 0.0;
 
   //remove product from cart
   void removeFromCart(BuildContext context, Product product) {
@@ -78,7 +79,7 @@ class CartPage extends StatelessWidget {
                       //return a ProductTile
                       return ListTile(
                         title: Text(product.name),
-                        subtitle: Text(product.price.toStringAsFixed(2)),
+                        subtitle: Text(product.price.toStringAsFixed(2) + "€"),
                         trailing: IconButton(
                           icon: const Icon(Icons.remove),
                           onPressed: () => removeFromCart(context, product),
@@ -86,7 +87,20 @@ class CartPage extends StatelessWidget {
                       );
                     }),
           ),
+
           //total price
+          cart.isEmpty
+              ? const SizedBox()
+              : Padding(
+                  padding: const EdgeInsets.all(25.0),
+                  child: Text(
+                    "Total: ${cart.map((e) => e.price).reduce((a, b) => a + b).toStringAsFixed(2)}€",
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ),
 
           //pay button
           cart.isEmpty
