@@ -8,22 +8,26 @@ class Shop extends ChangeNotifier {
     Product(
       name: "Product 1",
       price: 100.0,
-      description: "Product 1 description",
+      description:
+          "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     ),
     Product(
       name: "Product 2",
       price: 200.0,
-      description: "Product 2 description",
+      description:
+          "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     ),
     Product(
       name: "Product 3",
       price: 300.0,
-      description: "Product 3 description",
+      description:
+          "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     ),
     Product(
       name: "Product 4",
       price: 400.0,
-      description: "Product 4 description",
+      description:
+          "lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua",
     ),
   ];
 

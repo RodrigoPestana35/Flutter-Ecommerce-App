@@ -21,16 +21,35 @@ class ShopPage extends StatelessWidget {
       ),
       drawer: const MyDrawer(),
       backgroundColor: Theme.of(context).colorScheme.surface,
-      body: ListView.builder(
-        padding: const EdgeInsets.all(25),
-        itemCount: products.length,
-        itemBuilder: (context, index) {
-          //get each product
-          final product = products[index];
+      body: ListView(
+        children: [
+          SizedBox(
+            height: 25,
+          ),
+          Center(
+            child: Text(
+              "Find here the best products",
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.inversePrimary,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 550,
+            child: ListView.builder(
+              padding: const EdgeInsets.all(25),
+              scrollDirection: Axis.horizontal,
+              itemCount: products.length,
+              itemBuilder: (context, index) {
+                //get each product
+                final product = products[index];
 
-          //return a ProductTile
-          return MyProductTile(product: product);
-        },
+                //return a ProductTile
+                return MyProductTile(product: product);
+              },
+            ),
+          )
+        ],
       ),
     );
   }
