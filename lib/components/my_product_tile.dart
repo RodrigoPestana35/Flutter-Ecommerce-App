@@ -1,7 +1,9 @@
 // ignore_for_file: avoid_unnecessary_containers, prefer_const_constructors
 
 import 'package:ecommerceapp/models/product.dart';
+import 'package:ecommerceapp/models/shop.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class MyProductTile extends StatelessWidget {
   final Product product;
@@ -9,6 +11,37 @@ class MyProductTile extends StatelessWidget {
     super.key,
     required this.product,
   });
+
+  //add product to cart
+  void addToCart(BuildContext context) {
+    //show a dialog box to ask the user if they want to add the product to the cart
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Add to Cart"),
+            content: Text("Do you want to add this product to the cart?"),
+            actions: [
+              //yes button
+              MaterialButton(
+                onPressed: () {
+                  //add product to cart
+                  context.read<Shop>().addToCart(product);
+                  Navigator.pop(context);
+                },
+                child: Text("Yes"),
+              ),
+              //cancel button
+              MaterialButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Cancel"),
+              ),
+            ],
+          );
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -82,11 +115,10 @@ class MyProductTile extends StatelessWidget {
               Container(
                 decoration: BoxDecoration(
                   color: Theme.of(context).colorScheme.secondary,
-                  borderRadius: BorderRadius.circular(10),
+                  borderRadius: BorderRadius.circular(12),
                 ),
-                padding: const EdgeInsets.all(10),
                 child: IconButton(
-                  onPressed: () {},
+                  onPressed: () => addToCart(context),
                   icon: Icon(Icons.add_shopping_cart),
                 ),
               ),

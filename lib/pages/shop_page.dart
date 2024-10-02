@@ -35,7 +35,7 @@ class ShopPage extends StatelessWidget {
             ),
           ),
           SizedBox(
-            height: 550,
+            height: 600,
             child: ListView.builder(
               padding: const EdgeInsets.all(25),
               scrollDirection: Axis.horizontal,
